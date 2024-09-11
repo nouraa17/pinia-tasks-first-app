@@ -7,18 +7,22 @@
         <h1>Pinia Tasks</h1>
       </div>
 <!--      <h1>{{ taskStore.name }}</h1>-->
+
+      <!-- new task form -->
       <div class="new-task-form">
         <TaskForm/>
       </div>
     </header>
-
-    <!-- new task form -->
 
     <!-- filter -->
     <nav class="filter">
       <button @click="filter = 'all'">All tasks</button>
       <button @click="filter = 'favs'">Favourite tasks</button>
     </nav>
+
+    <div class="loading" v-if="taskStore.loading">
+      Loading Tasks...
+    </div>
 
     <!-- tasks list -->
     <div class="task-list" v-if="filter==='all'">
@@ -55,6 +59,11 @@ export default {
   setup(){
     const taskStore = useTaskStore()
     const filter = ref('all')
+
+    // fetch tasks
+
+    taskStore.getTasks()
+
     return {
       taskStore,
       filter
