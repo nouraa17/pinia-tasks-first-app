@@ -13,11 +13,16 @@ body * {
 header {
     text-align: center;
     background: #e7e7e7;
-    padding: 20px;
-    display: flex;
+    padding: 45px 0 0 0;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
     border-bottom: solid #ffd149;
+}
+header .center{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 header img {
     max-width: 60px;
@@ -62,6 +67,10 @@ header h1 {
     cursor: pointer;
     color: #bbb;
 }
+.task i.active {
+    color: #ff005d;
+
+}
 .filter {
     width: 640px;
     margin: 10px auto;
@@ -76,6 +85,33 @@ header h1 {
     padding: 4px 8px;
     cursor: pointer;
     font-size: 1em;
+}
+.new-task-form {
+    display: block;
+    background: #e7e7e7;
+    padding: 20px 0;
+}
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 10px;
+}
 
-
+form button {
+    background: #ffd859;
+    border: 0;
+    padding: 10px;
+    font-family: "Poppins";
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+}
+form input {
+    border: 0;
+    padding: 10px;
+    border-radius: 6px;
+    color: #555;
+    font-size: 1em;
 }

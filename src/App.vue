@@ -2,10 +2,17 @@
   <main>
     <!-- heading -->
     <header>
-      <img src="./assets/Pinialogo.svg.png" alt="pinia logo">
-      <h1>Pinia Tasks</h1>
+      <div class="center" style="display: flex;">
+        <img src="./assets/Pinialogo.svg.png" alt="pinia logo">
+        <h1>Pinia Tasks</h1>
+      </div>
 <!--      <h1>{{ taskStore.name }}</h1>-->
+      <div class="new-task-form">
+        <TaskForm/>
+      </div>
     </header>
+
+    <!-- new task form -->
 
     <!-- filter -->
     <nav class="filter">
@@ -25,7 +32,7 @@
     </div>
     <div class="task-list" v-if="filter==='favs'">
       <p>Favorite tasks</p>
-      <p style="color: #ff0099;">You have {{taskStore.favCount}} favs left to do</p>
+      <p style="color: #ff005d;">You have {{taskStore.favCount}} favs left to do</p>
       <div v-for="task in taskStore.favs">
         <TaskDetails :task="task"/>
       </div>
@@ -36,12 +43,14 @@
 
 <script>
 import TaskDetails from "@/components/TaskDetails.vue";
+import TaskForm from "@/components/TaskForm.vue";
 import {useTaskStore} from "@/stores/TaskStore";
 import {ref} from "vue";
 
 export default {
   components :{
     TaskDetails,
+    TaskForm,
   },
   setup(){
     const taskStore = useTaskStore()
